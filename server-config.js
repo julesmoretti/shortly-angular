@@ -19,7 +19,7 @@ app.configure(function() {
 });
 
 app.get('/', handler.renderIndex);
-app.get('/create', handler.renderIndex);
+app.get('/shorten', handler.renderIndex);
 
 app.get('/links', handler.fetchLinks);
 app.post('/links', handler.saveLink);
