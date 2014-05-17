@@ -1,11 +1,20 @@
 var angular = angular;
 
 angular.module('app', ['ngRoute'])
-.controller('HomeController', function($scope) {
-  $scope.user = 'davis';
+.controller('HomeController', function($scope, $http) {
+  $http.get('/links').success(function(data){
+    $scope.links = data;
+  });
 })
-.controller('ShortenController', function($scope) {
-  $scope.user = 'jules';
+.controller('ShortenController', function($scope, $http) {
+  $scope.link = 'http://google.com';
+  $scope.saveLink = function() {
+    console.log($scope.link);
+    $http.post('/links', {url: $scope.link})
+      .success(function() {
+        console.log('post!', $scope.link);
+      });
+  };
 })
 
 .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
