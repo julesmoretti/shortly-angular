@@ -9,7 +9,8 @@
 
 
 <div ng-controller="HomeController">
-  <div class="link" ng-repeat="link in links">
+  <input ng-model="search"/>
+  <div class="link" ng-repeat="link in links | filter : search | orderBy : '-visits'">
     <img src='/client/redirect_icon.png'/>
     <div class='info'>
       <div class='visits'><span class='count'>{{link.visits}}</span>Visits</div>
