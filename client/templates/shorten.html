@@ -8,9 +8,9 @@
 <div id='container'></div>
 
 <div ng-controller="ShortenController">
-  <form name="link-entry">
-    <input type="text" name="link" ng-model="link" required>
-    <button ng-click="saveLink()">Submit</button>
+  <form novalidate class="css-form" name="linkEntry" ng-model="form">
+    <input type="url" name="link" ng-model="link" required />
+    <input type="submit" value="submit" ng-click="saveLink()" ng-disabled="linkEntry.$invalid" />
   </form>
   <img class='spinner' src='/client/spiffygif_46x46.gif' ng-show="spinnerStatus">
   <div class='message'></div>
