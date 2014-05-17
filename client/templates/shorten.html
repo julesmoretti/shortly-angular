@@ -1,0 +1,7 @@
+<div ng-controller="ShortenController">
+  <form name="link-entry">
+    <input type="text" name="link" ng-model="link" required>
+    <button ng-click="saveLink()">Submit</button>
+  </form>
+  <p> {{link}} </p>
+</div>
