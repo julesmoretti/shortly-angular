@@ -6,14 +6,24 @@ angular.module('app', ['ngRoute'])
     $scope.links = data;
   });
 })
-.controller('ShortenController', function($scope, $http) {
+.controller('ShortenController', function($scope, $http, $location) {
   $scope.link = 'http://google.com';
+  // $scope.spinnerStatus = false;
   $scope.saveLink = function() {
-    console.log($scope.link);
+    $scope.spinnerToggle();
     $http.post('/links', {url: $scope.link})
       .success(function() {
         console.log('post!', $scope.link);
+        $scope.spinnerToggle();
+        $location.path('/');
+        $scope.messagePreview();
       });
+  };
+  $scope.spinnerToggle = function() {
+    $scope.spinnerStatus = !$scope.spinnerStatus;
+  };
+  $scope.messagePreview = function() {
+    // show preview
   };
 })
 
