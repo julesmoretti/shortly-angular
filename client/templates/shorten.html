@@ -1,7 +1,17 @@
+<div class='navigation'>
+<ul>
+  <li><a ng-href='/' class='index'>All Links</a></li>
+  <li><a ng-href='shorten' class='create'>Shorten</a></li>
+</ul>
+  <a href='/logout' class='logout'>Logout</a>
+</div>
+<div id='container'></div>
+
 <div ng-controller="ShortenController">
   <form name="link-entry">
     <input type="text" name="link" ng-model="link" required>
     <button ng-click="saveLink()">Submit</button>
   </form>
-  <p> {{link}} </p>
+  <img class='spinner' src='/client/spiffygif_46x46.gif' ng-show="spinnerStatus">
+  <div class='message'></div>
 </div>
